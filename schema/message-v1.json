@@ -1,0 +1,63 @@
+// schema/message-v1.json
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": [ "meta", "hyperbits", "payload", "sender" ],
+	"properties": {
+		"meta": {
+			"type": "object",
+			"required": [ "version", "timestamp" ],
+			"properties": {
+				"version": {
+					"type": "string",
+					"const": "muse-mvp-1.0"
+				},
+				"timestamp": {
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+		"hyperbits": {
+			"type": "object",
+			"required": [ "base", "energy", "color" ],
+			"properties": {
+				"base": {
+					"type": "string",
+					"enum": [ "idea", "question", "task", "note", "emotion" ]
+				},
+				"energy": {
+					"type": "integer",
+					"minimum": 1,
+					"maximum": 10
+				},
+				"color": {
+					"type": "string",
+					"pattern": "^#[0-9A-Fa-f]{6}$"
+				}
+			}
+		},
+		"payload": {
+			"type": "object",
+			"required": [ "type", "content" ],
+			"properties": {
+				"type": {
+					"type": "string",
+					"const": "text"
+				},
+				"content": {
+					"type": "string",
+					"minLength": 1
+				}
+			}
+		},
+		"sender": {
+			"type": "object",
+			"required": [ "id" ],
+			"properties": {
+				"id": { "type": "string" },
+				"name": { "type": "string" }
+			}
+		}
+	}
+}

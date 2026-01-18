@@ -1,0 +1,14 @@
+{
+  "name": "muse-hyperbits",
+  "version": "0.1.0",
+  "description": "MVP ядра обмена гипербитами сознания",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.17.1",
+    "ajv": "^8.17.1"
+  },
+  "license": "MIT"
+}
